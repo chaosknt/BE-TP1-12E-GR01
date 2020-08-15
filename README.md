@@ -1,6 +1,6 @@
 # BE-TP1-12E-GR01
 
-Ejercicio 1.
+<h1>Ejercicio 1.</h1>
 Implementá la clase Grupo, la cual representa al grupo de Trabajos Prácticos y sus integrantes. Para eso, la clase tendrá un atributo nombre (String) para guardar  el nombre del grupo y otro atributo llamado integrantes (colección de Strings), donde cada elemento será el nombre de un integrante de tu grupo de trabajos prácticos. Debe cumplir con el siguiente diseño (explotar/implementar los métodos que se mencionan a
 continuación): <br>
 ● public Grupo(String nombre) 
