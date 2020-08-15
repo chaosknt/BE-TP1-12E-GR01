@@ -33,7 +33,7 @@ Muestra por consola la cantidad de integrantes y los nombres de cada uno de
 ellos.<br>
 ● public void mostrar()
 Muestra por consola el nombre del grupo, la cantidad de integrantes y el
-nombre de cada uno de ellos.
+nombre de cada uno de ellos.<br>
 ● public void vaciar(): Elimina todos los elementos de la lista de integrantes.<br>
 
 <h3>Desde el main():</h3>
