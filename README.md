@@ -34,8 +34,8 @@ ellos.<br>
 ● public void mostrar()
 Muestra por consola el nombre del grupo, la cantidad de integrantes y el
 nombre de cada uno de ellos.
-● public void vaciar()<br>
-Elimina todos los elementos de la lista de integrantes.
+● public void vaciar(): Elimina todos los elementos de la lista de integrantes.<br>
+
 <h3>Desde el main():</h3>
 ● Creá una instancia de Grupo asignándole el número, la letra o el nombre que le
 hayan puesto.<br>
