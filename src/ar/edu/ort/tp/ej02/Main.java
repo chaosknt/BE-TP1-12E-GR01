@@ -4,11 +4,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Competencia carrera = new Competencia("Carrera", 5);
+		Competencia carrera = new Competencia("Carrera", 2);
 		
 		carrera.setDatos();
 		
 		carrera.mostrar();
+		
+		carrera.calcularGanador();
 
 	}
 

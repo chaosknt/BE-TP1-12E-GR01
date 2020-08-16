@@ -32,10 +32,28 @@ public class Competencia {
 	
 	public void mostrar()
 	{
+		System.out.println("Nombre | Tiempo");
 		for(int i = 0; i < participantes.length; i++)
 		{
-			System.out.println("Nombre: " + participantes[i] + " Tiempo: " + tiempos[i]);
+			System.out.println(participantes[i] + " | " + tiempos[i]);
 		}
+	}
+	
+	public void calcularGanador() 
+	{
+		String nombre = null;
+		float aux = 99999;
+		
+		for(int i = 0; i < tiempos.length; i++) 
+		{
+			if(tiempos[i] < aux) 
+			{
+				aux = tiempos[i];
+				nombre = participantes[i];
+			}
+		}
+		
+		System.out.println("EL ganador fue: " + nombre + " con un tiempo de:  " + aux);
 	}
 	
 	private String nombre() 
@@ -45,7 +63,9 @@ public class Competencia {
 	
 	private float tiempo() 
 	{
-		return in.nextFloat();
+		float num = Float.parseFloat(in.nextLine());
+		return num;
+		
 	}
 		
 }
