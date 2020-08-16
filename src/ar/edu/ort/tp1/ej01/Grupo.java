@@ -32,6 +32,10 @@ public class Grupo {
 		if(obtenerPosicionIntegrante(nombreIntegrante) == -1)
 		{
 			integrantes.add(nombreIntegrante);
+			System.out.println("["+nombreIntegrante+"]"+" fue asignado al grupo " + "["+ getNombre() + "]");
+		}else
+		{
+			System.out.println("El integrante ya fue agregado");
 		}
 		
 	}
@@ -75,5 +79,42 @@ public class Grupo {
 		return retorno;
 	}
 	
+	public String removerIntegrante(String nombreIntegrante) 
+	{
+		String retorno = null;
+		int indice = obtenerPosicionIntegrante(nombreIntegrante);
+		if(indice != -1) 
+		{
+			retorno = integrantes.remove(indice);
+		}
+		return retorno;
+		
+	}
+	
+	private void mostrarIntegrantes()
+	{
+		int integrantes = getCantidadIntegrantes();
+		if(integrantes > 0) 
+		{
+			System.out.println("Cantidad de integrantes: " + integrantes);
+			for(String  i: this.integrantes) 
+			{
+				System.out.println(i);
+			}
+		}else
+		{
+			System.out.println("La lista esta vacia");
+		}
+	}
+	
+	public void mostrar() 
+	{
+		mostrarIntegrantes();
+	}
+	
+	public void vaciar() 
+	{
+		integrantes = new ArrayList<String>();
+	}
 	
 }
