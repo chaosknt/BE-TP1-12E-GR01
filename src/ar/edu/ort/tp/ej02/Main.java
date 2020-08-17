@@ -7,7 +7,7 @@ public class Main {
 	public static Scanner in = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		Competencia comp1 = null;
+		Competencia comp1 = null;	
 		
 	int menu;
 	

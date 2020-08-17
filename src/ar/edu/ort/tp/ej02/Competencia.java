@@ -44,14 +44,19 @@ public class Competencia {
 	
 	public void calcularGanador() 
 	{
-		float aux = 99999;				
+		float aux = Float.MAX_VALUE;			
 		for(int i = 0; i < tiempos.length; i++) 
 		{
-			if(tiempos[i] <= aux)
+			if(tiempos[i] < aux)
 			{
 				aux = tiempos[i];
+				ganador.clear();
+				ganador.add(new Ganador(participantes[i], tiempos[i]));
+			}else if(tiempos[i] == aux) 
+			{
 				ganador.add(new Ganador(participantes[i], tiempos[i]));
 			}
+			
 		}
 				
 	}
