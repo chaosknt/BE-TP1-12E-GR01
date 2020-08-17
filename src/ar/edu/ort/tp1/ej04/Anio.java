@@ -2,7 +2,7 @@ package ar.edu.ort.tp1.ej04;
 
 public class Anio {	
 	
-	private String[] meses = {"Enero",
+	private String[] meses = {"En",
 							"Febrero",
 							"Marzo",
 							"Abril",
