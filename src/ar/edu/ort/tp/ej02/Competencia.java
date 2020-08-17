@@ -1,5 +1,6 @@
 package ar.edu.ort.tp.ej02;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Competencia {
@@ -9,12 +10,14 @@ public class Competencia {
 	private String nombre;
 	private float [] tiempos;
 	private String [] participantes;
+	private ArrayList<Ganador> ganador;
 	
 	public Competencia(String nombre, int cantidad) 
 	{
 		this.nombre = nombre;
 		participantes = new String [cantidad];
 		this.tiempos = new float [cantidad];
+		ganador = new ArrayList<Ganador>();		
 		
 	}
 	
@@ -30,7 +33,7 @@ public class Competencia {
 		}
 	}
 	
-	public void mostrar()
+	public void mostrarParticipantes()
 	{
 		System.out.println("Nombre | Tiempo");
 		for(int i = 0; i < participantes.length; i++)
@@ -41,19 +44,33 @@ public class Competencia {
 	
 	public void calcularGanador() 
 	{
-		String nombre = null;
-		float aux = 99999;
-		
+		float aux = 99999;				
 		for(int i = 0; i < tiempos.length; i++) 
 		{
-			if(tiempos[i] < aux) 
+			if(tiempos[i] <= aux)
 			{
 				aux = tiempos[i];
-				nombre = participantes[i];
+				ganador.add(new Ganador(participantes[i], tiempos[i]));
 			}
 		}
-		
-		System.out.println("EL ganador fue: " + nombre + " con un tiempo de:  " + aux);
+				
+	}
+	
+	public void mostrarGanador() 
+	{	
+		if(ganador.size() > 1)
+		{
+			System.out.println("Hubo empate en el primer puesto");
+		}
+		recorrerLista();
+	}
+	
+	private void recorrerLista()
+	{
+		for(Ganador g : ganador) 
+		{
+			System.out.println(g.toString());
+		}
 	}
 	
 	private String nombre() 
@@ -64,8 +81,11 @@ public class Competencia {
 	private float tiempo() 
 	{
 		float num = Float.parseFloat(in.nextLine());
-		return num;
-		
+		return num;		
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 		
 }
