@@ -1,19 +1,36 @@
 package ar.edu.ort.tp1.ej04;
 
+import java.util.Scanner;
+
 public class Test {
+	public static Scanner input = new Scanner(System.in); 
 
 	public static void main(String[] args) {
-		
 		Anio a = new Anio();
-		int dia = 2;
-		System.out.println(a.getNombreDelMes(dia));
 		
-		int dias = a.diasTranscurridos(dia);
+		int numMes = ingresarFecha("Ingrese un Mes del año");
+		System.out.println("Ingresó "+a.getNombreDelMes(numMes));
+		System.out.println("Dias transcurridos antes de "+a.getNombreDelMes(numMes)+" :"+a.diasTranscurridos(numMes));
 		
-		System.out.println(dias);
+		int [] cumples = new int[4];
+		for(int i=0; i < cumples.length; i++){
+			int dia = ingresarFecha("Ingrese día de cumpleaños");
+			int mes = ingresarFecha("Ingrese mes de cumpleaños");
+			cumples[i] = a.calcularDiasTranscurridos(dia, mes);
+		}
 		
-		System.out.println(a.calcularDiasTranscurridos(10, 3));
+		for(int i=0; i < cumples.length; i++){
+			System.out.println(cumples[i]);
+		}
+	}
 
+	private static int ingresarFecha(String mens) {
+		int num;
+		do{
+			System.out.println(mens);
+			num = Integer.parseInt(input.nextLine());
+		}while(num<0);
+		return num;
 	}
 
 }

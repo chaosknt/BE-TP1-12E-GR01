@@ -8,10 +8,10 @@ public class Competencia {
 	public static Scanner in = new Scanner(System.in);
 	
 	private String nombre;
-	private float [] tiempos;
-	private String [] participantes;
 	private ArrayList<Participante> participante;
 	private ArrayList<Participante> ganador;
+	
+	private Podio ganadores;
 	
 	public Competencia(String nombre) 
 	{
@@ -37,19 +37,19 @@ public class Competencia {
 	
 	private void calcularGanador() 
 	{
-		float aux = Float.MAX_VALUE;
+		
+		float primerPuesto = Float.MAX_VALUE;
+		float segundoPuesto = Float.MAX_VALUE + 1;
+		float tercerPuesto = Float.MAX_VALUE + 2 ;
+		
 		float auxTiempo = 0;
 		for(Participante p: participante) 
 		{
 			auxTiempo = p.getTiempo();
-			if(auxTiempo < aux) 
+			if(auxTiempo < tercerPuesto && auxTiempo < segundoPuesto && auxTiempo < primerPuesto) 
 			{
-				ganador.clear();
-				ganador.add(p);
-				aux = auxTiempo;
-			}else if(p.getTiempo() == aux)
-			{
-				ganador.add(p);
+				ganadores.vaciarPrimero();
+				ganadores.agregarPrimero(p);
 			}
 		}
 				
