@@ -4,35 +4,28 @@ import java.util.Scanner;
 
 public class Main {
 	
-	public static final String MSG_MENU = "1.-Crear competencia, 2.- Ingresar Nombre/tiempo de los participantes, 3.- Calcular Ganador, 4.- Salir";
+	
 	public static Scanner in = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		Competencia comp1 = null;	
-		
-	int menu;
 	
-	do 
-	{
-		System.out.println(MSG_MENU);
-		menu = validarNumero(MSG_MENU, 1,4);	
-		switch(menu) 
-		{
-			case 1: comp1 = crearCompetencia();
-				 menu = 0;
-				break;
-			
-			case 2:ingresarDatos(comp1);
-				break;
-			
-			case 3:calcularGanador(comp1);				   
-				break;		
-		}
-		
-	}while(menu != 4);			
+	Competencia comp1 =  new Competencia ("carrera");
 	
-	System.out.println("Programa terminado");
-					
+	comp1.setDatos("Mariano", 1);
+	comp1.setDatos("Sofia", 2);
+	comp1.setDatos("Patricio", 3);
+	comp1.setDatos("Jorge", 3);
+	comp1.setDatos("Lucas", 1);
+	comp1.setDatos("Dario", 2);
+	comp1.setDatos("Carlos", 4);
+	
+		
+	comp1.mostrarParticipantes();
+	System.out.println("--------------------");
+	System.out.println("Mostrando ganadores");
+	comp1.mostrarGanador();
+	
+	
 	in.close();
 						
 }

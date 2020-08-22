@@ -7,17 +7,16 @@ public class Competencia {
 	
 	public static Scanner in = new Scanner(System.in);
 	
-	private String nombre;
+	private String nombre;//nombre de la competencia
 	private ArrayList<Participante> participante;
-	private ArrayList<Participante> ganador;
-	
 	private Podio ganadores;
 	
 	public Competencia(String nombre) 
 	{
 		this.nombre = nombre;
 		participante = new ArrayList<Participante>();
-		ganador = new ArrayList<Participante>();		
+		ganadores = new Podio();
+			
 		
 	}
 	
@@ -37,42 +36,81 @@ public class Competencia {
 	
 	private void calcularGanador() 
 	{
-		
-		float primerPuesto = Float.MAX_VALUE;
-		float segundoPuesto = Float.MAX_VALUE + 1;
-		float tercerPuesto = Float.MAX_VALUE + 2 ;
-		
-		float auxTiempo = 0;
+		float tiempo = 0;
+		int posicion;
+		int menor = 1;
+		int igual = 2;
+		int mayor = 3;
 		for(Participante p: participante) 
 		{
-			auxTiempo = p.getTiempo();
-			if(auxTiempo < tercerPuesto && auxTiempo < segundoPuesto && auxTiempo < primerPuesto) 
+			tiempo = p.getTiempo();
+			posicion = calcularPosicion(tiempo, ganadores.getTiempoPrimero());
+			//comparo con el primero lugar
+			if(posicion  == menor) 
 			{
 				ganadores.vaciarPrimero();
 				ganadores.agregarPrimero(p);
+				ganadores.setTiempoPrimero(tiempo);
+			}else if(posicion == igual) 
+			{
+				ganadores.agregarPrimero(p);
+			}else if(posicion == mayor) 
+			{
+				posicion = calcularPosicion(tiempo, ganadores.getTiempoSegundo());
+				//comparo con el segundo lugar
+				if(posicion == menor) 
+				{
+					ganadores.vaciarSegundo();
+					ganadores.agregarSegundo(p);
+					ganadores.setTiempoSegundo(tiempo);
+				}else if(posicion == igual) 
+				{
+					ganadores.agregarSegundo(p);
+				}else if(posicion == mayor)
+				{
+					posicion = calcularPosicion(tiempo, ganadores.getTiempoTercero());
+					//comparo con el tercer lugar
+					if(posicion == menor) 
+					{
+						ganadores.vaciarTercero();
+						ganadores.agregarTercero(p);
+						ganadores.setTiempoTercero(tiempo);
+					}else if(posicion == igual) 
+					{
+						ganadores.agregarTercero(p);
+					}
+				}
 			}
+			
 		}
 				
 	}
 	
+	private int calcularPosicion(float tiempoParticipante, float TiempoPodio) 
+	{
+		// 1 es menor
+		// 2 es igual
+		// 3 es mayor		
+		int retorno;
+		if(tiempoParticipante < TiempoPodio) 
+		{
+			retorno = 1;
+		}else if(tiempoParticipante > TiempoPodio) 
+		{
+			return 3;
+		}else 
+		{
+			retorno = 2;
+		}
+		
+		return retorno;
+	}		
+	
 	public void mostrarGanador() 
 	{	
 		calcularGanador();
-		if(ganador.size() > 1)
-		{
-			System.out.println("Hubo empate en el primer puesto");
-		}
-		recorrerLista();
-	}
-	
-	private void recorrerLista()
-	{
-		for(Participante g : ganador) 
-		{
-			System.out.println(g.toString());
-		}
-	}
-		
+		 ganadores.imprimir();		
+	}			
 	
 	public String getNombre() 
 	{

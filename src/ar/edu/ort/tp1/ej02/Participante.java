@@ -21,7 +21,7 @@ public class Participante {
 	}
 	@Override
 	public String toString() {
-		return "Ganador [nombre=" + nombre + ", tiempo=" + tiempo + "]";
+		return "Participante [nombre=" + nombre + ", tiempo=" + tiempo + "]";
 	}
 
 	
