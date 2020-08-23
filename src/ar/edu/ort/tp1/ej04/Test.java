@@ -6,7 +6,7 @@ public class Test {
 	public static Scanner input = new Scanner(System.in); 
 
 	public static void main(String[] args) {
-		Anio a = new Anio();
+		AnioV2 a = new AnioV2();
 		
 		int numMes = ingresarFecha("Ingrese un Mes del año");
 		System.out.println("Ingresó "+a.getNombreDelMes(numMes));
