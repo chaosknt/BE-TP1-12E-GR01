@@ -15,13 +15,28 @@ public class GastoAnual {
 		/*Agrega el importe gastado al rubro que corresponda y en el mes indicado. Si el
 		rubro no se encuentra registrado en la colección se lo agregará, y cuando ya 
 		exista se acumulará en este el valor del gasto. Pero debe controlarse que el
-		importe ingresado sea mayor que cero.*/
+		importe ingresado sea mayor que cero.*/		
+		Rubro aux = obtenerRubro(nombreRubro);
+		aux.agregarGasto(mes, importe);
+		System.out.println("Operacion realizada.");
 	}
 	
 	private Rubro obtenerRubro(String nombreRubro) 
 	{
 		/* Obtiene y devuelve el Rubro a partir de su nombre. Cuando éste no exista deberá crearlo*/
-		return null;
+		Rubro retorno = buscarRubro(nombreRubro);
+		if(retorno == null) 
+		{
+			retorno = crearRubro(nombreRubro);
+		}
+		return retorno;
+	}
+	
+	private Rubro crearRubro(String nombreRubro)
+	{
+		Rubro retorno = new Rubro (nombreRubro);
+		gastos.add(retorno);
+		return retorno;
 	}
 	
 	private Rubro buscarRubro(String nombreRubro) 
@@ -37,8 +52,7 @@ public class GastoAnual {
 		if(indice < gastos.size()) 
 		{
 			retorno = gastos.get(indice);
-		}
-		
+		}		
 		return retorno;
 	}
 	
@@ -54,14 +68,25 @@ public class GastoAnual {
 	public double gastoAcumulado(Mes mes)
 	{
 		//Devuelve el importe del gasto acumulado en el mes indicado
-		return 0;
+		double retorno = 0;
+		for(Rubro g: gastos)
+		{
+			retorno += g.getTotalGastos(mes);
+		}
+		return retorno;
 	}
 	
 	public double gastoAcumulado(String nombreRubro)
 	{
 		//Devuelve el importe del gasto acumulado en el rubro indicado. Si el rubro no
 		//existe deberá devolver -1.
-		return 0;
+		double retorno = -1;
+		Rubro gAcumulado = buscarRubro(nombreRubro);
+		if(gAcumulado != null) 
+		{
+			retorno = gAcumulado.getGastoAcumulado();
+		}
+		return retorno;
 	}
 	
 	public void informarConsumosPorMes() 

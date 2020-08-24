@@ -22,9 +22,10 @@ public class Rubro {
 	
 	public void agregarGasto(Mes mes, double gasto) 
 	{
+		//Acumula el importe en la posición correspondiente al mes indicado.
 		int indice = devolverIndice(mes);
 		this.gasto[indice] += gasto;
-		//Acumula el importe en la posición correspondiente al mes indicado.
+		
 	}
 	
 	public String getNombre() 
@@ -37,6 +38,16 @@ public class Rubro {
 		//Devuelve el importe acumulado de gastos para el mes indicado.
 		int indice = devolverIndice(mes);
 		return gasto[indice];
+	}
+	
+	public double getGastoAcumulado()
+	{
+		double retorno = 0;
+		for(int i = 0; i < gasto.length; i++) 
+		{
+			retorno += gasto[i];
+		}
+		return retorno;
 	}
 	
 	private int devolverIndice(Mes mes)
