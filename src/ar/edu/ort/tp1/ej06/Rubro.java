@@ -50,6 +50,7 @@ public class Rubro {
 		return retorno;
 	}
 	
+		
 	private int devolverIndice(Mes mes)
 	{
 		int retorno = 0;

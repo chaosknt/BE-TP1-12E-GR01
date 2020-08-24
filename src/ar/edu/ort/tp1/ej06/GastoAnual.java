@@ -62,6 +62,8 @@ public class GastoAnual {
 		gastos del año. La matriz debe medir 12 (la cantidad de meses del año) por la
 		cantidad de Rubros existentes, y cada celda debe contener el importe
 		acumulado para el rubro en ese mes.*/
+		int meses = 12;
+		double [][] retorno = new double [meses][gastos.size()];
 		return null;
 	}
 	
