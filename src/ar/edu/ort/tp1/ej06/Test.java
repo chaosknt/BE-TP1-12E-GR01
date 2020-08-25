@@ -23,6 +23,13 @@ public class Test {
 		GastoAnual gastos = new GastoAnual();
 		
 		gastos.agregarGasto(Mes.ENERO, "luz", 10);
+		gastos.agregarGasto(Mes.ENERO, "luz", 10);
+		
+		gastos.agregarGasto(Mes.ENERO, "Gas", 10);
+		
+		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
+		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
+		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
 		
 		System.out.println("---");
 		gastos.verGasto();
@@ -31,13 +38,24 @@ public class Test {
 		
 		double a [] [] = gastos.consolidarGastos();
 		
-		for(int i = 0; i < a.length; i++)
+		/*for(int i = 0; i < a.length; i++)
 		{
+			System.out.println("Mes: " + i);
 			for(int j = 0; j < a[i].length; j++) 
 			{
 				System.out.println(a[i][j]);
 			}
-		}
+		}*/
+		
+		System.out.println(gastos.gastoAcumulado("luz"));
+		
+		System.out.println(gastos.gastoAcumulado(Mes.ENERO));
+		
+		gastos.informarConsumosPorMes();
+		
+		gastos.informarPromedioMensualPorRubro();
+		
+		gastos.informarMesMayorConsumo();
 		
 		
 	}

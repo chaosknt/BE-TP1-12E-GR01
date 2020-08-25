@@ -50,7 +50,7 @@ public class Rubro {
 	
 	public double getTotalGastos(int mes) 
 	{
-		return gasto[mes + 1];
+		return gasto[mes];
 	}
 	
 	public double getGastoAcumulado()
@@ -98,6 +98,4 @@ public class Rubro {
 		
 		return retorno;
 	}
-	
-	
 }
