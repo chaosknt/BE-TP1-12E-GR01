@@ -19,14 +19,25 @@ public class GastoAnual {
 		Rubro aux = obtenerRubro(nombreRubro);
 		aux.agregarGasto(mes, importe);
 		System.out.println("Operacion realizada.");
+	}	
+	
+	//funcion para testear 
+	public void verGasto() 
+	{
+		for(Rubro g: gastos) 
+		{
+			g.mostrarAnio();
+		}
 	}
 	
 	private Rubro obtenerRubro(String nombreRubro) 
 	{
 		/* Obtiene y devuelve el Rubro a partir de su nombre. Cuando éste no exista deberá crearlo*/
 		Rubro retorno = buscarRubro(nombreRubro);
+		
 		if(retorno == null) 
 		{
+			System.out.println("El rubro no existe, se va crear");
 			retorno = crearRubro(nombreRubro);
 		}
 		return retorno;
@@ -56,7 +67,7 @@ public class GastoAnual {
 		return retorno;
 	}
 	
-	private double[][] consolidarGastos()
+	public double[][] consolidarGastos()
 	{
 		/*Genera un arreglo bidimensional consolidando en una sola estructura todos los
 		gastos del año. La matriz debe medir 12 (la cantidad de meses del año) por la
@@ -64,7 +75,15 @@ public class GastoAnual {
 		acumulado para el rubro en ese mes.*/
 		int meses = 12;
 		double [][] retorno = new double [meses][gastos.size()];
-		return null;
+		
+		for(int m = 0; m < retorno.length; m++) 
+		{
+			for(int g = 0; g < retorno[m].length; g++)
+			{
+				retorno[m][g] = gastos.get(g).getTotalGastos(g);
+			}
+		}
+		return retorno;
 	}
 	
 	public double gastoAcumulado(Mes mes)

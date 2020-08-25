@@ -9,8 +9,16 @@ public class Rubro {
 		//Es el constructor. Recibe el nombre o descripción del rubro. Debe inicializar el
 		//arreglode importes
 		this.nombre = nombre;
-		gasto = new double [12];
+		inicializarGastos();
 		
+	}
+	//funcion para testear
+	public void mostrarAnio() 
+	{
+		for(int i = 0; i < gasto.length; i++) 
+		{
+			System.out.println(gasto[i]);
+		}
 	}
 	
 	private void inicializarGastos()
@@ -40,6 +48,11 @@ public class Rubro {
 		return gasto[indice];
 	}
 	
+	public double getTotalGastos(int mes) 
+	{
+		return gasto[mes + 1];
+	}
+	
 	public double getGastoAcumulado()
 	{
 		double retorno = 0;
@@ -57,29 +70,29 @@ public class Rubro {
 		
 		switch(mes)
 		{
-		case ENERO: retorno = 1;
+		case ENERO: retorno = 0;
 			break;
-		case FEBRERO: retorno = 2;
+		case FEBRERO: retorno = 1;
 			break;
-		case MARZO: retorno = 3;
+		case MARZO: retorno = 2;
 			break;
-		case ABRIL: retorno = 4;
+		case ABRIL: retorno = 2;
 			break;
-		case MAYO: retorno = 5;
+		case MAYO: retorno = 4;
 			break;
-		case JUNIO: retorno = 6;
+		case JUNIO: retorno = 5;
 			break;
-		case JULIO: retorno = 7;
+		case JULIO: retorno = 6;
 			break;
-		case AGOSTO: retorno = 8;
+		case AGOSTO: retorno = 7;
 			break;
-		case SEPTIEMBRE: retorno = 9;
+		case SEPTIEMBRE: retorno = 8;
 			break;
-		case OCTUBRE: retorno = 10;
+		case OCTUBRE: retorno = 9;
 			break;
-		case NOVIEMBRE: retorno = 11;
+		case NOVIEMBRE: retorno = 10;
 			break;
-		case DICIEMBRE: retorno = 12;
+		case DICIEMBRE: retorno = 11;
 			break;
 		}
 		
