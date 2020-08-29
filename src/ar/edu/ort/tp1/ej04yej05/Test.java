@@ -1,4 +1,4 @@
-package ar.edu.ort.tp1.ej04;
+package ar.edu.ort.tp1.ej04yej05;
 
 import java.util.Scanner;
 
@@ -12,16 +12,13 @@ public class Test {
 		System.out.println("Ingresó "+a.getNombreDelMes(numMes));
 		System.out.println("Dias transcurridos antes de "+a.getNombreDelMes(numMes)+" :"+a.diasTranscurridos(numMes));
 		
-		int [] cumples = new int[4];
-		for(int i=0; i < cumples.length; i++){
-			int dia = ingresarFecha("Ingrese día de cumpleaños");
-			int mes = ingresarFecha("Ingrese mes de cumpleaños");
-			cumples[i] = a.calcularDiasTranscurridos(dia, mes);
-		}
+		System.out.println("Ingresar fecha actual");
 		
-		for(int i=0; i < cumples.length; i++){
-			System.out.println(cumples[i]);
-		}
+		int dia = ingresarFecha("Ingrese día");
+		int mes = ingresarFecha("Ingrese mes");
+		System.out.println("dias transcurrridos desde el comienzo hasta la fecha ingresada: " + a.calcularDiasTranscurridos(dia, mes));
+		
+		System.out.println("El cumpleaños de Pagani es el dia " + a.calcularDiasTranscurridos(21, 8) + " del año");
 	}
 
 	private static int ingresarFecha(String mens) {

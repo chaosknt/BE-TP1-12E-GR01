@@ -1,4 +1,4 @@
-package ar.edu.ort.tp1.ej04;
+package ar.edu.ort.tp1.ej04yej05;
 
 public enum Meses {
 	ENERO,
