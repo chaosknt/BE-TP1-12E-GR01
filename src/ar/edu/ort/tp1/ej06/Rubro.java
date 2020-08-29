@@ -12,6 +12,7 @@ public class Rubro {
 		inicializarGastos();
 		
 	}
+	
 	//funcion para testear
 	public void mostrarAnio() 
 	{
@@ -76,7 +77,7 @@ public class Rubro {
 			break;
 		case MARZO: retorno = 2;
 			break;
-		case ABRIL: retorno = 2;
+		case ABRIL: retorno = 3;
 			break;
 		case MAYO: retorno = 4;
 			break;

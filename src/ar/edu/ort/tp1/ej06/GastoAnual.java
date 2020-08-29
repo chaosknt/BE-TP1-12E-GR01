@@ -38,7 +38,7 @@ public class GastoAnual {
 		
 		if(retorno == null) 
 		{
-			System.out.println("El rubro no existe, se va crear");
+			System.out.println("El rubro " + nombreRubro + " no existe, se va crear");
 			retorno = crearRubro(nombreRubro);
 		}
 		return retorno;
@@ -124,10 +124,11 @@ public class GastoAnual {
 			System.out.println("Mes: " + devolverMes(m));
 			for(int g = 0; g < consolidarGasto[m].length; g++)
 			{
-				gasto = gastos.get(g);
-				System.out.println("Rubro: " + gasto.getNombre() + " Importe: " + consolidarGasto[m][g]);
+				gasto = gastos.get(g);				
+				System.out.println("Rubro: " + gasto.getNombre() + " Importe: " + consolidarGasto[m][g]);							
 				
 			}
+			
 		}
 	}
 	

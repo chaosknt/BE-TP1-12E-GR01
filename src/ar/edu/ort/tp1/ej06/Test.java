@@ -2,54 +2,35 @@ package ar.edu.ort.tp1.ej06;
 
 public class Test {
 
-	public static void main(String[] args) {
-		
-		/*Rubro gasto = new Rubro("luz");
-		
-		gasto.agregarGasto(Mes.ENERO, 10);			
-		
-		System.out.println(gasto.getTotalGastos(Mes.FEBRERO));
-		
-		System.out.println(gasto.getTotalGastos(Mes.ENERO));
-		
-		System.out.println(gasto.getGastoAcumulado());
-		
-		System.out.println("---");
-		
-		gasto.mostrarAnio();*/
-		
-		//clase Rubro funciona ok // 
+	public static void main(String[] args) {		
 		
 		GastoAnual gastos = new GastoAnual();
 		
-		gastos.agregarGasto(Mes.ENERO, "luz", 10);
-		gastos.agregarGasto(Mes.ENERO, "luz", 10);
+		gastos.agregarGasto(Mes.ENERO, "Luz", 10);
+		gastos.agregarGasto(Mes.FEBRERO, "Luz", 10);
+		gastos.agregarGasto(Mes.MARZO, "Luz", 10);
 		
-		gastos.agregarGasto(Mes.ENERO, "Gas", 10);
 		
-		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
-		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
-		gastos.agregarGasto(Mes.FEBRERO, "Gas", 10);
+	
+		
+		gastos.agregarGasto(Mes.ENERO, "Gas", 15);
+		gastos.agregarGasto(Mes.FEBRERO, "Gas", 15);
+		gastos.agregarGasto(Mes.MARZO, "Gas", 15);
+		
+		
+		gastos.agregarGasto(Mes.ENERO,"Agua", 9);
+		gastos.agregarGasto(Mes.FEBRERO,"Agua", 9);
+		gastos.agregarGasto(Mes.MARZO, "Agua", 9);
+		
 		
 		System.out.println("---");
-		gastos.verGasto();
 		
-		System.out.println("---");
+		//double a [] [] = gastos.consolidarGastos();		
 		
-		double a [] [] = gastos.consolidarGastos();
+		System.out.println("Mostrando todo el gasto acumulado para el rubro Luz: "+gastos.gastoAcumulado("Luz"));
+		System.out.println("Mostrando todo el gasto acumulado para el rubro Sushi: "+gastos.gastoAcumulado("Sushi"));
 		
-		/*for(int i = 0; i < a.length; i++)
-		{
-			System.out.println("Mes: " + i);
-			for(int j = 0; j < a[i].length; j++) 
-			{
-				System.out.println(a[i][j]);
-			}
-		}*/
-		
-		System.out.println(gastos.gastoAcumulado("luz"));
-		
-		System.out.println(gastos.gastoAcumulado(Mes.ENERO));
+		System.out.println("Mostrando el gasto acumulado de todos los rubros para el mes de enero: "+gastos.gastoAcumulado(Mes.ENERO));
 		
 		gastos.informarConsumosPorMes();
 		
