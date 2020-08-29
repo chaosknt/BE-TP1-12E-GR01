@@ -37,6 +37,7 @@ nombre de cada uno de ellos.<br>
 ● public void vaciar(): Elimina todos los elementos de la lista de integrantes.<br>
 
 <h3>Desde el main():</h3>
+<p>
 ● Creá una instancia de Grupo asignándole el número, la letra o el nombre que le
 hayan puesto.<br>
 ● Agregale los miembros reales de tu grupo de trabajos prácticos. Agregale uno
@@ -54,7 +55,7 @@ removido.<br>
 ● Volvé a remover el mismo integrante ficticio.<br>
 ● Mostrá de nuevo los datos del grupo, actualizados.<br>
 ● Vaciá el grupo y volvé a mostrarlo.<br>
-
+</p>
 <h2>Ejercicio 2.</h2>
 
 <p>Para los Juegos Olímpicos de la Juventud nos pidieron un programa con el cual
@@ -62,3 +63,14 @@ podamos calcular quién fue el ganador de una carrera. Para eso ingresaremos un
 atleta y los segundos que ha empleado (con decimales) para recorrer la distancia de
 una especialidad determinada. debe tener en cuenta que puede haber más de un
 ganador (sus tiempos empleados fueron los mismos).</p>
+
+<h2>Ejercicio 3.</h2>
+  
+<p>Modificá el ejercicio anterior para que en vez de indicar solamente quién fue el ganador
+obtenga cuál fue la terna ganadora. Debe tener en cuenta que puede haber atletas que
+“empaten” en cualquiera de las tres posiciones del podio.</p>
+
+<h2>Ejercicio 4.</h2>
+
+<p></p>
+
