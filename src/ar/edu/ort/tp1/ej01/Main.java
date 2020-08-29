@@ -15,7 +15,8 @@ public class Main {
 		
 		mostrarDatos(tallerProgramacion);
 		
-		System.out.println(existe("diego MaRaDoNad", tallerProgramacion));
+		System.out.println("Existe el integrante diego MaRaDoNad? "+ existe("diego MaRaDoNad", tallerProgramacion));
+		System.out.println("Existe el integrante Mariano Pagani? "+ existe("Mariano Pagani", tallerProgramacion));
 		
 		System.out.println("Integrante removido: "+ tallerProgramacion.removerIntegrante("Diego Maradona"));
 		System.out.println("Integrante removido: "+ tallerProgramacion.removerIntegrante("Diego Maradona"));
