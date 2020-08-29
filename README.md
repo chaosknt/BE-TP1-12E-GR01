@@ -105,16 +105,17 @@ tiene un nombre y guarda el importe de los gastos de cada uno de los meses del a
 
 <h3>Implementá los métodos de Rubro:</h3>
 
-<p>● public Rubro(String nombre):Es el constructor. Recibe el nombre o descripción del rubro. Debe inicializar el arreglode importes.<br>
+<p>
+● public Rubro(String nombre): Es el constructor. Recibe el nombre o descripción del rubro. Debe inicializar el arreglode importes.<br>
 ● private void inicializarGastos(): Inicializa el arreglo de importes.<br>
 ● public void agregarGasto(Mes mes, double importe): Acumula el importe en la posición correspondiente al mes indicado.<br>
 ● public getNombre(): Devuelve el nombre del Rubro.<br>
-● public double getTotalGastos(Mes mes):Devuelve el importe acumulado de gastos para el mes indicado.
+● public double getTotalGastos(Mes mes): Devuelve el importe acumulado de gastos para el mes indicado.
 </p>
 
 <h3>Implementá los métodos de GastoAnual:</h3>
 <p>
-● public GastoAnual():Es el constructor, e inicializa la colección de Rubros.<br>
+● public GastoAnual(): Es el constructor, e inicializa la colección de Rubros.<br>
 ● public void agregarGasto(Mes mes, String nombreRubro, double importe): Agrega el importe gastado al rubro que corresponda y en el mes indicado. Si el
 rubro no se encuentra registrado en la colección se lo agregará, y cuando ya exista se acumulará en este el valor del gasto. Pero debe controlarse que el
 importe ingresado sea mayor que cero. <br>
