@@ -1,4 +1,4 @@
-package ar.edu.ort.tp1.ej02;
+package ar.edu.ort.tp1.ej02yej03;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,14 +7,16 @@ public class Competencia {
 	
 	public static Scanner in = new Scanner(System.in);
 	
-	private String nombre;//nombre de la competencia
+	private String nombre; //nombre de la competencia
 	private ArrayList<Participante> participante;
+	private ArrayList<Participante> ganador; // ejercicio 02
 	private Podio ganadores;
 	
 	public Competencia(String nombre) 
 	{
 		this.nombre = nombre;
 		participante = new ArrayList<Participante>();
+		ganador = new ArrayList<Participante>();
 		ganadores = new Podio();
 			
 		
@@ -33,6 +35,41 @@ public class Competencia {
 			System.out.println(p.toString());
 		}
 	}
+	
+	private void calcularGanadorUnico() // solo para la primera posicion (ejercicio 2)
+	{
+		float aux = Float.MAX_VALUE;
+		float tiempoParticipante;
+		for(Participante p: participante) 
+		{
+			tiempoParticipante = p.getTiempo();
+			if(tiempoParticipante < aux)
+			{
+				aux = tiempoParticipante;
+				//ganador.clear();
+				ganador.add(p);
+			}else if(tiempoParticipante == aux)
+			{
+				ganador.add(p);
+			}
+		}
+	}
+	
+	public void mostrarGanadorUnico()// ejercicio 2
+	{
+		calcularGanadorUnico();
+		if(ganador.size() > 1) 
+		{
+			System.out.println("Hubo empate en el primer lugar");
+			
+		}
+		
+		for(Participante g: ganador) 
+		{
+			System.out.println(g);		
+		}
+		
+	}	
 	
 	private void calcularGanador() 
 	{

@@ -1,4 +1,4 @@
-package ar.edu.ort.tp1.ej02;
+package ar.edu.ort.tp1.ej02yej03;
 
 import java.util.Scanner;
 
@@ -11,18 +11,23 @@ public class Main {
 	
 	Competencia comp1 =  new Competencia ("carrera");
 	
-	comp1.setDatos("Mariano", 1);
-	comp1.setDatos("Sofia", 2);
-	comp1.setDatos("Patricio", 3);
-	comp1.setDatos("Jorge", 3);
-	comp1.setDatos("Lucas", 1);
+	comp1.setDatos("Mariano", 1.1f);
+	comp1.setDatos("Sofia", 1.2f);
+	comp1.setDatos("Patricio", 1.3f);
+	comp1.setDatos("Jorge", 3.1f);
+	comp1.setDatos("Lucas", 1.1f);
 	comp1.setDatos("Dario", 2);
-	comp1.setDatos("Carlos", 4);
-	
+	comp1.setDatos("Carlos", 4);		
 		
 	comp1.mostrarParticipantes();
-	System.out.println("--------------------");
-	System.out.println("Mostrando ganadores");
+	System.out.println("--------------------");	
+	
+	System.out.println("Mostrando ganador(ejercico 2)");
+	comp1.mostrarGanadorUnico();
+	System.out.println("--------------------");	
+	
+	
+	System.out.println("Mostrando terna ganadores (ejercico 3)");
 	comp1.mostrarGanador();
 	
 	

@@ -1,4 +1,4 @@
-package ar.edu.ort.tp1.ej02;
+package ar.edu.ort.tp1.ej02yej03;
 
 public class Participante {
 	private String nombre;
