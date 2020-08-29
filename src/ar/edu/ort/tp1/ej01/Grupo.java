@@ -8,7 +8,7 @@ public class Grupo {
 	
 	public Grupo(String nombre) 
 	{
-		nombreGrupo = nombre;
+		setNombre(nombre);
 		integrantes = new ArrayList<String>();
 	}
 	
@@ -60,11 +60,11 @@ public class Grupo {
 	
 	public String obtenerIntegrante(int posicion)
 	{
+		String retorno = null;
 		if(posicion != -1 && posicion < getCantidadIntegrantes()) {
-			return integrantes.get(posicion);
-		}else {
-			return null;
+			retorno = integrantes.get(posicion);
 		}
+		return retorno;
 	}
 	
 	public String buscarIntegrante(String nombre) 

@@ -14,6 +14,7 @@ public class Main {
 		tallerProgramacion.agregarIntegrante("Diego Maradona");
 		
 		mostrarDatos(tallerProgramacion);
+		
 		System.out.println(existe("diego MaRaDoNad", tallerProgramacion));
 		
 		System.out.println("Integrante removido: "+ tallerProgramacion.removerIntegrante("Diego Maradona"));
