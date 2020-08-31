@@ -12,10 +12,10 @@ public class Anio {
 	}
 	
 	public int diasTranscurridos(int numeroMes) {	
-		int retorno= 0;
+		int retorno = 0;
 		if(numeroMes > 1)
 		{
-			for(int i = 0; i < numeroMes; i++)
+			for(int i = 0; i < numeroMes - 1; i++)
 			{
 				retorno += dias[i];
 			}

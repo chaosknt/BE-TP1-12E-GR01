@@ -5,7 +5,7 @@ public class Podio {
 	private Lugar primero;
 	private Lugar segundo;
 	private Lugar tercero;
-	
+			
 	
 	Podio(){
 		primero = new Lugar();
@@ -59,12 +59,12 @@ public class Podio {
 	}
 	
 	public void vaciarPrimero() 
-	{
+	{				
 		primero.vaciar();
 	}
 	
 	public void vaciarSegundo()
-	{
+	{		
 		segundo.vaciar();
 	}
 	
@@ -98,6 +98,32 @@ public class Podio {
 	private void mostrarTercero()
 	{
 		tercero.imprimirResultado();
+	}
+	
+	public void agregarNuevoPrimerLugar(float t, Participante p) 
+	{
+		tercero = segundo;
+		segundo = primero;
+		
+		primero = new Lugar();
+		primero.setTiempo(t);			
+		primero.agregar(p);
+		  
+	}
+	
+	public void agregarNuevoSegundoLugar(float t, Participante p) 
+	{
+		tercero = segundo;
+		segundo = new Lugar();
+		segundo.setTiempo(t);		
+		segundo.agregar(p);
+	}
+		
+	public void agregarNuevoTercerLugar(float t, Participante p)
+	{
+		tercero.setTiempo(t);
+		tercero.vaciar();
+		tercero.agregar(p);
 	}
 
 }

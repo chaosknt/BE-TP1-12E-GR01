@@ -2,8 +2,7 @@ package ar.edu.ort.tp1.ej02yej03;
 
 import java.util.Scanner;
 
-public class Main {
-	
+public class Main {	
 	
 	public static Scanner in = new Scanner(System.in);
 	
@@ -17,24 +16,22 @@ public class Main {
 	comp1.setDatos("Jorge", 3.1f);
 	comp1.setDatos("Lucas", 1.1f);
 	comp1.setDatos("Dario", 2);
-	comp1.setDatos("Carlos", 4);		
-		
+	comp1.setDatos("Carlos", 4);	
+	comp1.setDatos("Fulano", 0.5f);
+	
 	comp1.mostrarParticipantes();
 	System.out.println("--------------------");	
 	
 	System.out.println("Mostrando ganador(ejercico 2)");
 	comp1.mostrarGanadorUnico();
-	System.out.println("--------------------");	
-	
+	System.out.println("--------------------");		
 	
 	System.out.println("Mostrando terna ganadores (ejercico 3)");
-	comp1.mostrarGanador();
-	
+	comp1.mostrarGanador();					
 	
 	in.close();
 						
-}
-	
+}	
 	
 	public static Competencia crearCompetencia() 
 	{

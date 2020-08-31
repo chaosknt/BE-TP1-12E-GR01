@@ -18,7 +18,7 @@ public class Test {
 		int mes = ingresarFecha("Ingrese mes");
 		System.out.println("dias transcurrridos desde el comienzo hasta la fecha ingresada: " + a.calcularDiasTranscurridos(dia, mes));
 		
-		System.out.println("El cumpleaños de Pagani es el dia " + a.calcularDiasTranscurridos(21, 8) + " del año");
+		System.out.println("El cumpleaños de Tomas es el dia " + a.calcularDiasTranscurridos(10, 3) + " del año");
 	}
 
 	private static int ingresarFecha(String mens) {
@@ -26,7 +26,7 @@ public class Test {
 		do{
 			System.out.println(mens);
 			num = Integer.parseInt(input.nextLine());
-		}while(num<0);
+		}while(num<0 || num > 12);
 		return num;
 	}
 

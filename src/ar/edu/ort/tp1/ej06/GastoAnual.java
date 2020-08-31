@@ -193,8 +193,7 @@ public class GastoAnual {
 			aux = 0;						
 		}		
 		return retorno;			
-	}
-		
+	}		
 				
 	public Mes devolverMes(int indice) 
 	{

@@ -11,21 +11,19 @@ public class Competencia {
 	private ArrayList<Participante> participante;
 	private ArrayList<Participante> ganador; // ejercicio 02
 	private Podio ganadores;
-	
+			
 	public Competencia(String nombre) 
 	{
 		this.nombre = nombre;
 		participante = new ArrayList<Participante>();
 		ganador = new ArrayList<Participante>();
-		ganadores = new Podio();
-			
-		
+		ganadores = new Podio();					
 	}
 	
 	public void setDatos(String nombre, float tiempo) 
 	{
 		participante.add(new Participante(nombre, tiempo));
-	}
+	}	
 	
 	public void mostrarParticipantes()
 	{
@@ -46,7 +44,7 @@ public class Competencia {
 			if(tiempoParticipante < aux)
 			{
 				aux = tiempoParticipante;
-				//ganador.clear();
+				ganador.clear();
 				ganador.add(p);
 			}else if(tiempoParticipante == aux)
 			{
@@ -69,83 +67,40 @@ public class Competencia {
 			System.out.println(g);		
 		}
 		
-	}	
-	
-	private void calcularGanador() 
+	}					
+	public void calcularGanador() 
 	{
-		float tiempo = 0;
-		int posicion;
-		int menor = 1;
-		int igual = 2;
-		int mayor = 3;
+		System.out.println(participante.size());
+		float tiempoParticipante = 0f;
 		for(Participante p: participante) 
 		{
-			tiempo = p.getTiempo();
-			posicion = calcularPosicion(tiempo, ganadores.getTiempoPrimero());
-			//comparo con el primero lugar
-			if(posicion  == menor) 
-			{
-				ganadores.vaciarPrimero();
-				ganadores.agregarPrimero(p);
-				ganadores.setTiempoPrimero(tiempo);
-			}else if(posicion == igual) 
+			tiempoParticipante = p.getTiempo();
+			if(ganadores.getTiempoPrimero() > tiempoParticipante) 
+			{				
+				ganadores.agregarNuevoPrimerLugar(tiempoParticipante, p);
+			}else if(ganadores.getTiempoPrimero() == tiempoParticipante) 
 			{
 				ganadores.agregarPrimero(p);
-			}else if(posicion == mayor) 
+			}else if(ganadores.getTiempoSegundo() > tiempoParticipante) 
 			{
-				posicion = calcularPosicion(tiempo, ganadores.getTiempoSegundo());
-				//comparo con el segundo lugar
-				if(posicion == menor) 
-				{
-					ganadores.vaciarSegundo();
-					ganadores.agregarSegundo(p);
-					ganadores.setTiempoSegundo(tiempo);
-				}else if(posicion == igual) 
-				{
-					ganadores.agregarSegundo(p);
-				}else if(posicion == mayor)
-				{
-					posicion = calcularPosicion(tiempo, ganadores.getTiempoTercero());
-					//comparo con el tercer lugar
-					if(posicion == menor) 
-					{
-						ganadores.vaciarTercero();
-						ganadores.agregarTercero(p);
-						ganadores.setTiempoTercero(tiempo);
-					}else if(posicion == igual) 
-					{
-						ganadores.agregarTercero(p);
-					}
-				}
+				ganadores.agregarNuevoSegundoLugar(tiempoParticipante, p);
+			}else if(ganadores.getTiempoSegundo() == tiempoParticipante)
+			{
+				ganadores.agregarSegundo(p);
+			}else if(ganadores.getTiempoTercero() > tiempoParticipante) 
+			{
+				ganadores.agregarNuevoTercerLugar(tiempoParticipante, p);
+			}else if(ganadores.getTiempoTercero() ==  tiempoParticipante) 
+			{
+				ganadores.agregarTercero(p);
 			}
 			
 		}
-				
-	}
-	
-	private int calcularPosicion(float tiempoParticipante, float TiempoPodio) 
-	{
-		// 1 es menor
-		// 2 es igual
-		// 3 es mayor		
-		int retorno;
-		if(tiempoParticipante < TiempoPodio) 
-		{
-			retorno = 1;
-		}else if(tiempoParticipante > TiempoPodio) 
-		{
-			return 3;
-		}else 
-		{
-			retorno = 2;
-		}
-		
-		return retorno;
-	}		
-	
+	}			
+			
 	public void mostrarGanador() 
 	{	
-		calcularGanador();
+		calcularGanador();		
 		 ganadores.imprimir();		
 	}			
 	

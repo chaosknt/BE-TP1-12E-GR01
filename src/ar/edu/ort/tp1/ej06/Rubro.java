@@ -33,8 +33,7 @@ public class Rubro {
 	{
 		//Acumula el importe en la posición correspondiente al mes indicado.
 		int indice = devolverIndice(mes);
-		this.gasto[indice] += gasto;
-		
+		this.gasto[indice] += gasto;		
 	}
 	
 	public String getNombre() 

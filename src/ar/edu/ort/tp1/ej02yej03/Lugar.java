@@ -41,5 +41,15 @@ public class Lugar {
 		}		
 	}
 	
+	public ArrayList<Participante> devolverLista()
+	{
+		return ganador;
+	}
+	
+	public void asignarLista(ArrayList<Participante> lista) 
+	{
+		ganador = lista;
+	}
+	
 	
 }
